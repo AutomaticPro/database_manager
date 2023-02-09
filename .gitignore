@@ -1,0 +1,7 @@
+.idea/
+__pycache__/
+DbConnections.py
+queryStrings.py
+CSV/BaseRatesUpdates/Production/customer/*.csv
+CSV/BaseRatesUpdates/Production/driver/*.csv
+CSV/BaseRatesUpdates/QualityControl/*.csv
