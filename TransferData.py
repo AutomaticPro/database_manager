@@ -15,8 +15,7 @@ def copy_base_rates_tables(src_schema, dest_schema):
 def copyTables(src_schema, dest_schema, tables):
     # Connect to the database
     cnx = DbConnections.mysqlConnector()
-
-    print("Coping next tables:")
+    print(f"Copying tables from {src_schema} to {dest_schema}...")
     for table in tables:
         copyTable(cnx, src_schema, dest_schema, table)
 

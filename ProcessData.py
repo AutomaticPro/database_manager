@@ -19,7 +19,7 @@ def customerFuelUpdates(schema, tables_percentages):
     # Close the connection
     cnx.close()
 
-# call a store procedure to calculate customer Fuel, based on a percentage
+# Call a store procedure to calculate customer Fuel, based on a percentage
 def customerFuelUpdate(cnx, schema, table, percentage):
     # Create a cursor
     cursor = cnx.cursor()
@@ -31,7 +31,6 @@ def customerFuelUpdate(cnx, schema, table, percentage):
     # Close the cursor
     cursor.close()
 
-
 # ********************************* DRIVER FUEL UPDATES ********************************************
 def driverFuelUpdates(schema, tables_percentages):
     print("DRIVER FUEL UPDATED TABLES:")
@@ -42,7 +41,7 @@ def driverFuelUpdates(schema, tables_percentages):
     # Close the connection
     cnx.close()
 
-# call a store procedure to calculate driver Fuel, based on a percentage
+# Call a store procedure to calculate driver Fuel, based on a percentage
 def driverFuelUpdate(cnx, schema, table, percentage):
     cursor = cnx.cursor()
     # Execute store procedure
