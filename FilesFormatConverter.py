@@ -2,11 +2,14 @@ import csv
 import DbConnections
 import queryStrings
 
+# region Mysql to CSV Conversion for all baserates tables from a schema specified
 def csvFromBaseRatesTables(srcSchema):
     mysqlToCsvMultiples(srcSchema, queryStrings.base_rates_tables_array, queryStrings.customerDriverRatesFields, queryStrings.customerDriverCsvDest)
     mysqlToCsvMultiples(srcSchema, queryStrings.base_rates_tables_array, queryStrings.customerRatesFields, queryStrings.customerCsvDest)
     mysqlToCsvMultiples(srcSchema, queryStrings.base_rates_tables_array, queryStrings.driverRatesFields, queryStrings.driverCsvDest)
+# endregion
 
+# region MySql to CSV Conversion, in Any Array tables names
 # Transfer any array of tables from one Schema to Csv Files
 def mysqlToCsvMultiples(srcSchema, tables, fields, destCsv):
     # Connect to the database
@@ -28,3 +31,4 @@ def mysqlToCsv(cnx, srcSchema, table, fields, destCsv):
         writer.writerows(cursor)
     cursor.close()
     print(f"{table}")
+# endregion

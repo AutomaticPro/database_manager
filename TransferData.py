@@ -11,7 +11,7 @@ def copy_base_rates_tables(src_schema, dest_schema):
         print("Looks like you are about to do a big disaster, and it was prevented on this condition")
         print("your destiny schema is production schema and you are about to delete all base rates tables")
 
-# Transfer any array of tables from one Schema to other
+# Transfer any array of tables(all fields) from one Schema to other
 def copyTables(src_schema, dest_schema, tables):
     # Connect to the database
     cnx = DbConnections.mysqlConnector()
@@ -22,7 +22,7 @@ def copyTables(src_schema, dest_schema, tables):
     # Close the connection
     cnx.close()
 
-# Transfer a table from one schema to other
+# Transfer table(all fields) from one schema to other
 def copyTable(cnx, src_schema, dest_schema, table):
     # Create a cursor
     cursor = cnx.cursor()

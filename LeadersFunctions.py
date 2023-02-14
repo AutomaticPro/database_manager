@@ -4,7 +4,7 @@ import ProcessData
 import DictionaryFunctions
 
 def fuelUpdatesBaseRatesMain(environment):
-    if environment == "testing":
+    if environment == "test":
         TransferData.copy_base_rates_tables("tmxportal", "backups")
 
         print("Move Data to test environment")

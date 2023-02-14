@@ -1,15 +1,16 @@
 import DbConnections
 import queryStrings
 
-# Fuel Percentage Updates Customer and Drivers
-# As long as the percentage are the same no matter how many
-# times this process is executed, the result is always the same
+# region Fuel PCT Updates CUSTOMER and DRIVERS
 def fuelUpdatesCustomerDriver(schema):
     customerFuelUpdates(schema, queryStrings.customerFuelPercentages)
     driverFuelUpdates(schema, queryStrings.driverFuelPercentages)
+# As long as the percentage are the same no matter how many
+# times this process is executed, the result is always the same
+# endregion
 
 
-# **************************************** CUSTOMER FUEL UPDATES ***********************************
+# region Query DictData(Store Procedures) to calc CUSTOMER Fuel, PCT based
 def customerFuelUpdates(schema, tables_percentages):
     print("CUSTOMER FUEL UPDATED TABLES:")
     # Connect to the database
@@ -18,8 +19,9 @@ def customerFuelUpdates(schema, tables_percentages):
         customerFuelUpdate(cnx, schema, table, percentage)
     # Close the connection
     cnx.close()
+# endregion
 
-# Call a store procedure to calculate customer Fuel, based on a percentage
+# region Query Store Procedure to calc CUSTOMER Fuel, PCT based
 def customerFuelUpdate(cnx, schema, table, percentage):
     # Create a cursor
     cursor = cnx.cursor()
@@ -30,8 +32,9 @@ def customerFuelUpdate(cnx, schema, table, percentage):
     print(f"{table}")
     # Close the cursor
     cursor.close()
+# endregion
 
-# ********************************* DRIVER FUEL UPDATES ********************************************
+# region Query DictData(Store Procedures) to calc driver Fuel, PCT based
 def driverFuelUpdates(schema, tables_percentages):
     print("DRIVER FUEL UPDATED TABLES:")
     # Connect to the database
@@ -40,8 +43,9 @@ def driverFuelUpdates(schema, tables_percentages):
         driverFuelUpdate(cnx, schema, table, percentage)
     # Close the connection
     cnx.close()
+# endregion
 
-# Call a store procedure to calculate driver Fuel, based on a percentage
+# region Query Store Procedure to calc driver Fuel, PCT based
 def driverFuelUpdate(cnx, schema, table, percentage):
     cursor = cnx.cursor()
     # Execute store procedure
@@ -50,3 +54,4 @@ def driverFuelUpdate(cnx, schema, table, percentage):
     cnx.commit()
     print(f"{table}")
     cursor.close()
+# endregion

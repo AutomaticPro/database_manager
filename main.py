@@ -5,6 +5,5 @@ import FilesFormatConverter
 import queryStrings
 import LeadersFunctions
 
-LeadersFunctions.fuelUpdatesBaseRatesMain("help")
-# print("Finish")
-
+LeadersFunctions.fuelUpdatesBaseRatesMain("test")
+print("Finish")
